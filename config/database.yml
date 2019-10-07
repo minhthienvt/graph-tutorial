@@ -1,0 +1,27 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  reconnect: false
+  host: 'localhost'
+  database: 'azure-db'
+  username: 'root'
+  password: 'securepassword'
+#  socket: /var/run/mysqld/mysqld.sock
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: 'azure-db-test'
+
+staging:
+  <<: *default
+
+staginglocal:
+  <<: *default
+
+production:
+  <<: *default
